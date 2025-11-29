@@ -1,5 +1,9 @@
 import { colors } from "./app/constants/colors";
 
+const sizes = Array(27)
+  .fill("")
+  .reduce((obj, _, i) => ({ ...obj, [i + 6]: `${(i + 6) / 16}rem` }), {});
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -16,22 +20,8 @@ export default {
       fontFamily: {
         sans: ["BinanceNova", "system-ui", "sans-serif"],
       },
-      fontSize: {
-        11: "11px",
-        12: "12px",
-        13: "13px",
-        14: "14px",
-        15: "15px",
-        16: "16px",
-        17: "17px",
-        18: "18px",
-        19: "19px",
-        20: "20px",
-        21: "21px",
-        22: "22px",
-        23: "23px",
-        24: "24px",
-      },
+      borderRadius: sizes,
+      fontSize: sizes,
     },
   },
   plugins: [],
