@@ -1,3 +1,4 @@
+![Screenshot_30-11-2025_20755_localhost](https://github.com/user-attachments/assets/09d2c411-4b94-4ffd-a017-5cde2ff496c8)
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
