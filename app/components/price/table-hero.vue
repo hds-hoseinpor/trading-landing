@@ -1,5 +1,5 @@
 <template>
-  <div class="card md:border lg:max-w-[445px]">
+  <div class="card w-full md:border lg:max-w-[445px]">
     <base-tabs v-model="selectedTab" :tabs="tabs">
       <div class="flex-1" />
       <button class="text-12 text-[#90999E]"> View More > </button>

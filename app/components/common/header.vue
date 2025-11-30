@@ -3,8 +3,8 @@
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center space-x-4 lg:space-x-8">
-          <img
-            src="/img/logo.png"
+          <nuxt-img
+            src="/img/logo.svg"
             :height="$display?.lgAndUp ? '48px' : '38px'"
             :width="$display?.lgAndUp ? '90px' : '68px'"
           />

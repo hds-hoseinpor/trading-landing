@@ -2,7 +2,7 @@
   <div class="hidden lg:block">
     <div
       v-for="tab in tabs"
-      :key="tab.value + display.mdAndUp"
+      :key="tab.value"
       class="card first:mb-[20px] lg:bg-gray-50"
     >
       <div class="font-20 mb-4 border-b border-gray-200 pb-2 font-medium">
@@ -22,8 +22,6 @@
 
 <script setup>
   const priceStore = usePriceStore();
-
-  const display = useDisplay();
 
   const calculateChangePrice = (crypto) => {
     return crypto.price_change_percentage_24h;

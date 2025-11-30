@@ -1,5 +1,5 @@
 <template>
-  <div class="border-dark-gray flex border-b">
+  <div class="flex border-b border-dark-gray">
     <button
       v-for="tab in tabs"
       :key="tab.value"
