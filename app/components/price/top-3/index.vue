@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden lg:block">
+  <div v-if="$display.lgAndUp">
     <div
       v-for="tab in tabs"
       :key="tab.value"
@@ -11,7 +11,7 @@
       <price-top-3-item :prices="tab.prices" />
     </div>
   </div>
-  <span class="block lg:hidden">
+  <span v-else>
     <base-tabs v-model="selectedTab" :tabs="tabs" />
 
     <price-top-3-item

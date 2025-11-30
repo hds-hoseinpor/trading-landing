@@ -6,29 +6,20 @@
   >
     <div class="flex items-center justify-between">
       <span class="pr-4 text-12 font-medium lg:text-16">
-        {{ question }}
+        {{ title }}
       </span>
-      <Icon
-        v-if="show"
-        :name="closeIcon"
-        size="20"
-        class="text-trading-yellow"
-      />
-      <Icon v-else :name="openIcon" size="20" class="text-gray-400" />
+      <Icon v-if="show" :name="closeIcon" size="20" :class="closeIconClass" />
+      <Icon v-else :name="openIcon" size="20" :class="openIconClass" />
     </div>
-    <div v-if="show" class="mt-4 text-sm text-gray-600 md:text-base">
-      {{ answer }}
+    <div v-if="show">
+      <slot />
     </div>
   </div>
 </template>
 
 <script setup>
   defineProps({
-    question: {
-      type: String,
-      required: true,
-    },
-    answer: {
+    title: {
       type: String,
       required: true,
     },
@@ -39,6 +30,14 @@
     closeIcon: {
       type: String,
       default: "mdi:minus-circle",
+    },
+    openIconClass: {
+      type: String,
+      default: "text-gray-400",
+    },
+    closeIconClass: {
+      type: String,
+      default: "text-trading-yellow",
     },
   });
 

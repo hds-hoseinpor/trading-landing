@@ -99,7 +99,7 @@
     </div>
     <div
       v-if="isOpen"
-      class="mt-3 space-y-3 rounded-lg border border-gray-200 bg-white p-3 md:hidden"
+      class="relative z-10 mt-3 space-y-3 rounded-lg border border-gray-200 !bg-white p-3 md:hidden"
     >
       <div
         v-for="(item, i) in menuItems"

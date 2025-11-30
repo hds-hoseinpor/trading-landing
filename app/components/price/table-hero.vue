@@ -8,13 +8,14 @@
       <div
         v-for="(crypto, idx) in filteredPrices"
         :key="idx"
-        class="grid grid-cols-3 items-center py-2 hover:bg-gray-50"
+        class="grid grid-cols-4 items-center py-2 hover:bg-gray-50"
       >
         <crypto-item
           :image="crypto.image"
           :symbol="crypto.symbol"
           :name="crypto.name"
           :isHot="crypto.trade_coin"
+          class="col-span-2"
         />
         <div class="text-right text-14 font-medium md:text-base">
           ${{ formatPrice(crypto.current_price) }}

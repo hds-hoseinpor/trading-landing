@@ -23,18 +23,19 @@
               class="rounded-lg border border-gray-300 px-4 py-3 text-gray-700 placeholder-gray-400 focus:border-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-300 md:w-[321px]"
             />
             <button
-              class="h-[48px] w-[222px] rounded-lg bg-yellow-400 text-center text-16 font-medium text-[#131415] hover:bg-yellow-500"
+              class="h-[48px] w-full rounded-lg bg-yellow-400 text-center text-16 font-medium text-[#131415] hover:bg-yellow-500 md:w-[222px]"
             >
               Join & Earn $25 Bonus
             </button>
             <button
-              class="mx-auto flex h-12 w-12 items-center justify-center rounded-lg border border-[#F4F4F4] bg-[#F4F4F4] p-3 sm:mx-0"
+              class="mx-auto flex h-12 w-full items-center justify-center rounded-lg border border-[#F4F4F4] bg-[#F4F4F4] p-3 sm:mx-0 md:w-12"
             >
               <img
                 src="https://www.google.com/favicon.ico"
                 alt="Google"
                 class="h-7 w-7 object-cover md:object-contain"
               />
+              <span class="inline md:hidden"> Sign Up with Google </span>
             </button>
           </div>
         </div>
@@ -70,9 +71,9 @@
       >
         Live Cryptocurrency Prices Market Data
       </h2>
-      <div class="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
+      <div class="grid grid-cols-2 gap-6 md:gap-8 lg:grid-cols-3">
         <price-table class="col-span-2" />
-        <price-top-3 />
+        <price-top-3 class="col-span-2 px-4 lg:col-span-1 lg:px-0" />
       </div>
     </section>
     <section class="mx-auto max-w-7xl px-4 py-8 sm:px-6 md:py-16 lg:px-8">
@@ -150,7 +151,7 @@
               />
             </div>
 
-            <div>
+            <div class="hidden md:block">
               <img
                 src="/img/mobile-app.png"
                 alt="App Screenshot"
@@ -161,7 +162,7 @@
             </div>
           </div>
           <div class="text-center">
-            <div class="mb-8">
+            <div class="mb-4">
               <p class="mb-2 text-16 text-[##1A1D1E] md:w-[188px] md:text-16">
                 Scan to Download App
                 <span
@@ -175,7 +176,7 @@
                 <img
                   src="/img/Frame.png"
                   alt="QR Code"
-                  class="h-24 w-24 md:h-[158px] md:w-[159px]"
+                  class="h-[158px] w-[159px]"
                 />
               </div>
             </div>
@@ -334,9 +335,12 @@
         <base-collapsible
           v-for="(faq, idx) in faqQuestions"
           :key="idx"
-          :question="faq.question"
-          :answer="faq.answer"
-        />
+          :title="faq.question"
+        >
+          <div class="mt-4 text-sm text-gray-600 md:text-base">
+            {{ faq.answer }}
+          </div>
+        </base-collapsible>
       </div>
     </section>
   </div>
@@ -345,7 +349,10 @@
 <script setup>
   import { usePriceStore } from "~/stores/price";
 
+  const { $display } = useNuxtApp();
+
   const priceStore = usePriceStore();
+
   const blogs = [
     {
       id: 1,
@@ -372,7 +379,7 @@
     },
   ];
 
-  const comments = ref([
+  const comments = [
     {
       name: "Tony Marshal",
       Avatar: "/img/user.png",
@@ -388,7 +395,8 @@
       Avatar: "/img/user.png",
       desc: "Trade Bitcoin, Ethereum, and other perpetual swap contracts with up to 100x leverage on Poloniex Futures.",
     },
-  ]);
+  ];
+
   const sizesAdvice = {
     xs: "1",
     sm: "2",
@@ -424,12 +432,13 @@
     },
   ];
 
-  const stats = ref([
+  const stats = [
     { value: "2,334,894", label: "registered users" },
     { value: "+700 Coins", label: "Newest coins" },
     { value: "+1,876", label: "24h Trading pairs" },
     { value: "$10.47 Billion", label: "24h Trading volume" },
-  ]);
+  ];
+
   const sizes = {
     xs: "1",
     sm: "2",
@@ -437,7 +446,8 @@
     lg: "3",
     xl: "3",
   };
-  const faqQuestions = ref([
+
+  const faqQuestions = [
     {
       question: "What is Bitcoin and how does it work?",
       answer:
@@ -463,7 +473,7 @@
       answer:
         "To store Bitcoin securely, consider using hardware wallets like Ledger or Trezor, which keep your private keys offline and away from potential online threats. Alternatively, you can use reputable software wallets with strong security features. Always enable two-factor authentication, back up your wallet, and avoid sharing your private keys with anyone.",
     },
-  ]);
+  ];
 
   onMounted(() => {
     priceStore.getPrices();

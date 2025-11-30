@@ -17,7 +17,7 @@
     :slides-per-view="initialSlides"
     :space-between="spaceBetween"
     :loop="loop"
-    class="base-swiper w-full"
+    class="base-swiper w-full !pb-10"
     :breakpoints="breakpoints"
     :modules="modules"
     v-bind="$attrs"
@@ -153,8 +153,8 @@
       border-radius: 400px;
 
       &:not(.swiper-pagination-bullet-active) {
-        @apply bg-primary/60;
-        width: 6px;
+        @apply bg-primary/10;
+        width: 18px;
         height: 6px;
         border-radius: 200px;
       }
